@@ -1,0 +1,30 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #282c34;
+  color: white;
+  font-size: 20px;
+}
+
+.todo-list {
+  & > li {
+    cursor: pointer;
+    &:hover {
+      color: lightblue;
+      transition: all .3s;
+      background: azure;
+      padding: 4px;
+      border-radius: 10px;
+    }
+  }
+
+  & > li.completed {
+    font-style: italic;
+    color: #a4a4a4;
+    text-decoration: line-through;
+
+
+  }
+}
