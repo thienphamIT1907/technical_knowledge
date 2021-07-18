@@ -9,7 +9,6 @@ const TodoList = ({todoList, onClickTodoItem}) => {
   }
   return (
     <>
-      <h1>Todo List</h1>
       <ul className="todo-list">
         {todoList.map((todo, index) => (
           <li
@@ -19,7 +18,9 @@ const TodoList = ({todoList, onClickTodoItem}) => {
               completed: todo.status === 'completed'
             })}
             onClick={() => onItemClick(todo, index)}
-          >{todo.id} - {todo.task}</li>
+          >
+            {todo.id} - {todo.task}
+          </li>
         ))}
       </ul>
     </>

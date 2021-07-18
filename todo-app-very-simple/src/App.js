@@ -1,25 +1,26 @@
 import React, {useState} from 'react';
 import TodoList from "./components/TodoList";
+import TodoForm from "./components/TodoForm";
 
 const App = () => {
   const initTodoList = [
     {
-      id: 1,
+      id: Math.trunc(Math.random() *1000),
       task: 'Coding',
       status: 'completed'
     },
     {
-      id: 2,
+      id: Math.trunc(Math.random() *1000),
       task: 'Eating',
       status: 'new'
     },
     {
-      id: 3,
+      id: Math.trunc(Math.random() *1000),
       task: 'Sleeping',
       status: 'completed'
     },
     {
-      id: 4,
+      id: Math.trunc(Math.random() *1000),
       task: 'Fucking',
       status: 'completed'
     },
@@ -53,8 +54,22 @@ const App = () => {
     item => (filterStatus === 'all' || filterStatus === item.status)
   )
 
+  const handleSubmitAdd = (todo) => {
+    setTodoList([
+      ...todoList,
+      {
+        id: Math.trunc(Math.random() *1000),
+        task: todo.task,
+        status: 'new'
+      }
+    ])
+  }
+
+
   return (
     <div>
+      <h1>Todo List</h1>
+      <TodoForm onSubmit={handleSubmitAdd}/>
       <TodoList todoList={filteredList} onClickTodoItem={handleClickTodoItem}/>
       <div>
         <button onClick={onShowAll}>All</button>
